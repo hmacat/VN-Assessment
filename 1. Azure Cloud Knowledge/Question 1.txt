@@ -1,0 +1,30 @@
+Question: 
+Describe how you would design and deploy a scalable web application on Azure. Include services you would use, how you would manage scaling, and how you would ensure high availability.
+
+Answer:
+-> Compute Services
+	- Virtual Machines: If an IaaS solution is needed, virtual machines can be used. We can use availability sets to host virtual machines on different fault zones to provide high availability. Scale sets can be used for auto-scaling. 
+	- AKS: For scenarios that can utilize containarization, AKS can be selected. AKS supports high availability and auto scaling by managing pods. Kubernetes always checks for the desired state of the system, removes the pods that are not working and creates new pods when necessary. Kubernetes also provides load balancing with kubernetes services. We can use autoscaler features of Kubernetes for scaling.
+	- App Services: App Services can be used as PaaS solution. App services support vertical and horizontal scaling. We can also use auto-scaling features of the App Service to define rules for when to perform scaling. Geo scaling can be used for high availabiliy.
+	- Azure Functions: Consumption plan can be a low-cost solution. Azure Functions support auto scaling and the cost is based on the function execution count.
+-> Data
+	- Azure Blob Storage: To store static or unstructured files, we can use Azure Blob Store. Zone Redundant Storage or Geo Redundant storage can be used for high availability. Blos Storage supports scalability by design.
+	- Azure MSSQL/Azure CosmosDB: We can utilize partitioning for the scalability of our database. Database replication to different regions can be used for high availability.
+	- Redis: For faster reads and reducing the load on the database, we can use Redis as a distributed caching solution.
+	- Azure Service Bus: Writes to database can be queued using Service Bus to implement load leveling pattern which keeps the database load at the same level even for the request spike times.
+-> Load Balancing
+	- Azure Load Balancer: For regional and non-HTTP(S) cases, we can use Load Balancer as a Layer 4 solution at TCP/UDP level.
+	- Azure Application Gateway: For regional and HTTP(S) cases, we can use Application Gateway which is a Layer 7 solution and has support for HTTP, WebSockets, SSL offloading, URL based routing etc.
+	- Azure Traffic Manager: For Global and Non-HTTP(S) cases, we can use Traffic Manager which is a DNS-based solution. 
+	- Azure Front Door: For Global and HTTP(S) cases, we can use Azure Front Door as a Layer 7 solution.
+-> CDN
+	- Azure CDN can be used to serve static files in a fast way which can offloads requests for App Services to lower the load on them.
+-> API Management
+	- Azure API Management can be used to bring APIs together to a single domain. API MAnagement has support for distribution to different regions to support scaling.
+-> Deployment
+	- Deployment Slots: App services supports deployment slots. We can define staging and production slots to support zero downtime deployments to ensure HA.
+	- AKS: Kubernetes supports rolling updates for HA.
+-> Monitoring:
+	- Application Insights: Monitoring will be crucial for a scalable and HA system to detect the bottlenecks. We can use Application Insights as a monitoring solution.
+
+*Please check the example architecture diagram in the same folder which uses some of the concepts above. 

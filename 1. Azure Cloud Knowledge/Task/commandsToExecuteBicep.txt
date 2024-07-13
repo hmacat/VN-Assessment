@@ -1,0 +1,2 @@
+az group create --name bicepTestRG --location northeurope
+az deployment group create --resource-group bicepTestRG --name BicepTestDeployment --template-file deployment.bicep --parameters location='northeurope' sqlAdminLogin='bicepAdmin' sqlAdminPassword='bicepPassword1234*'
