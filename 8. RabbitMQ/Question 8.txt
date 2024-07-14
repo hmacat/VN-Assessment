@@ -1,0 +1,10 @@
+Question: How do you ensure reliable message delivery in RabbitMQ? What strategies do you use for error handling and message acknowledgment?
+
+Answer:
+- Message Acknowledgment
+	Manual acknowledgment can be implemented. Consumers confirm when they process a message. If a consumer disconnects, mesasge will be returned to the queue.
+	Negative Acknowledgment can be implemented if a consumer can't handle a message, it can send the message back to the queue to be processed again.
+
+- Durable Queues: Queues can be set as durable so they are persistent after a restart.
+
+- Dead Letter Queues: Failed messages are moved to dead letter exchange. They can be analyzed later to solve the problem. This isolation keeps the system unaffected from failed messages.
