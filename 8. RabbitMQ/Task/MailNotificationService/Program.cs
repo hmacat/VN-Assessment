@@ -24,9 +24,9 @@ class Program
         {
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
-            var registrationEvent = JsonSerializer.Deserialize<UserRegisteredEvent>(message);
+            var user = JsonSerializer.Deserialize<User>(message);
 
-            SendWelcomeEmail(registrationEvent);
+            SendWelcomeEmail(user);
         };
         channel.BasicConsume(queue: "user_registration",
                              autoAck: true,
@@ -36,8 +36,8 @@ class Program
         Console.ReadLine();
     }
 
-    private static void SendWelcomeEmail(UserRegisteredEvent registrationEvent)
-{
-        Console.WriteLine($"Sending welcome email to {registrationEvent.UserId} ({registrationEvent.Email})");
+    private static void SendWelcomeEmail(User user)
+    {
+        Console.WriteLine($"Sending welcome email to {user.Id} ({user.Email})");
     }
 }

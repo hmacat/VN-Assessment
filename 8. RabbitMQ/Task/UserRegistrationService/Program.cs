@@ -1,7 +1,6 @@
 ﻿using RabbitMQ.Client;
 using System.Text.Json;
 using System.Text;
-using System.Threading.Channels;
 
 namespace UserRegistrationService;
 
