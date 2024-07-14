@@ -1,0 +1,9 @@
+Question: Explain the benefits of an event-driven architecture. How does it compare to a traditional request-response architecture?
+
+Answer:
+- Event-driven architecture provides faster execution of the request. There is no waiting for RPCs to complete. Only sending message to a message bus is enough.
+- Deployment of the services is simpler. Brief downtime is handled automatically. Messages can still be sent to message bus and be ready to be processed after service deployment is done.
+- Absorbs spikes in load, maintains availability of the system.
+- Isolation of slow or down services increases the resilience of the system.
+- Easily add new services without changing existing services.
+- Provides low coupling of the services which makes the scalability and the deployment of the system much esaier.
