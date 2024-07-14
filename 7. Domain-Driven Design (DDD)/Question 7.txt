@@ -1,0 +1,17 @@
+Question: What is Domain-Driven Design, and how does it help in managing complex software projects? Provide an example scenario where DDD is beneficial.
+
+Answer:
+
+Domain Driven Design is a software development approach that primarily focuses on  the core domain, emphasizes collaborating with domain experts to reflect the business requirements to the software model.
+
+Concepts of DDD that helps managing complex software projects:
+
+- Ubiquitous language: A common language should be used for the domain model to bridge the gap between developers and domain experts for clear communication and correctly reflecting the bussiness requirements to the software design.
+
+- Bounded context: Provides clear boundaries between different parts of system to distribute and manage the complexity better. Bounded contexts also makes scaling easier, especially when implemented with microservices.
+
+- Core domain: It is the most important part of the system where the primary focus should be.
+
+- There are also more concepts like Entities, Value Objects, Aggregates, Repositories, Factories, etc. which helps implementing the domain model accurately to match with business requirements.
+
+Example: DDD is useful if the software project has complex business rules. Banking and Financial Services can be an example of a complex domain which involves different contexts like account management, user management, payments, factoring, loans, etc.
