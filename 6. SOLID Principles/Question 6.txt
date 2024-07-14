@@ -1,0 +1,54 @@
+Question: Describe each of the SOLID principles with an example of how it can be applied in a C# project.
+
+Answer:
+-> Single Responsibility Principle
+	Each software module (method, class, package, etc.) should have only one reason to change.
+	Each module should implement a single responsibility such as persistence, logging, validation, business logic, etc.
+	This principle prevents modules from becoming complex and hard to maintain.
+	This principle helps us to achieve low coupling and high cohesion which ensures changes in one part of the system have minimum effect on the other parts.
+	Each module becomes easier to test in isolation, so we can have leaner and more reliable tests.
+
+	Example:
+	Moving the logging and persistance logic from a large class to seperate logger and repository class implementations can be an example of SRP.
+
+-> Open / Closed Principle
+	Software entities should be open for extension but closed for modification, allowing new behaviors without changing the existing code.
+	This principle helps us to keep our existing code stable and reduces potential bugs by minimizing to the tested code and enhances maintainability.
+	We can implement OCP with inheritance, composition, extension methods (C#), and parameterization.
+
+	Example: Refactoring a long switch statement for different kinds of tax calculation to a strategy pattern can be an example.  
+
+-> Liskov Substitution Principle
+	Subtypes must be substitutable for their base types.
+	LSP suggests that is-a relationship is insufficient and should be replaced with is-substitutable-for.
+	We should look for:
+		- Type checking with is or as in code.
+		- Null checks
+		- NotImplementedException
+	to detect LSP violations.
+
+	Example: A Square class deriving from a Rectangle class may violate LSP. Because rectangle has Width and Height properties which
+			 does not relate to square. Square has an invariant which forces us to set the height and width equally. 
+			 So, implementing a square which does not derive from Rectangle and has a Side property instead of Width and Height might be a better solution.
+	
+-> Interface Segregation Principle
+	Clients should not be forced to depend on methods they do not need to use.
+	We should prefer small, cohesive interfaces.
+	We should look for:
+		- Large interfaces
+		- NotImplementedException
+		- Code uses just a small subset of a larger interface
+	to detect ISP violations.
+
+	Example: Let's say we have an INotificationService interface. It can have methods like SendMail, SendSMS, SendPushNotification, etc.
+			 We can create seperate interfaces for each main functionality like this to apply ISP:
+				IMailNotificationService
+				ISmsNotificationService
+				IPushNotificationService
+
+-> Dependency Inversion Principle
+	High-level modules should not depend on low level modules. Both should depend on abstractions.
+	Abstractions should not depend on details. Details should depend on abstractions.
+	Classes should be explicit about their dependencies and should inject dependencies when they create other classes.
+
+	Example: Creating logging interfaces and injecting them to the classes via constructor can be an example of DIP.
