@@ -1,0 +1,16 @@
+Question: What are the key considerations when designing a distributed system? How do you ensure consistency and reliability in such systems?
+
+Answer:
+	There are key considerations like scalability, resilience, consistency, performance and availability that we sohuld take intor consideration
+	when we design a distributed system. Let's focus on consistency and reliability.
+	- Consistency 
+		CAP theorem states that we can not achieve Consistency, Availability and Partition Tolerance together. 
+		When we think about the design of a distributed system, there are caching, queueing, partitioning and asynchronous operations which favors availability and partition tolerance over consistency.
+		So we can aim for eventual consistency and distributed transaction patterns like SAGA, Routing Slip pattern, etc. when needed.
+	- Reliability
+		We should eliminate the single point of failures in our system. In order to do that, we should utilize the hgih availability options of cloud platform.
+		We can choose the zone redundant or geo redundant options for the Azure services.
+		Asynchronous communication is more fault tolerant. Asnyc communication using Azure Service Bus can be a design choice.
+		Patterns like retry, exponential back-off, circuit breaker shall be implemented to manage the load of the system.
+		Azure App Insights and Azure Monitoring shall be used for monitoring the system for potential bottlenecks and errors.
+		Appropriate load balancing options like Azure Front Door, Azure Traffic Manager, Azure Load Balancer, Azure API Gateway shall be used.
