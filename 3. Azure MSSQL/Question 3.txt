@@ -1,1 +1,7 @@
 Question: How would you optimize a slow-running query in Azure SQL Database? Describe your approach to diagnosing and resolving performance issues.
+
+Answer:
+- Azure SQL Database Query Performance Insight tool can be used to identify slow-running queries.
+- After identifying the query, the execution plan of the query shall be checked. We can observe that if indexes are missing,
+  if existing indexes are used as expected and potential bottlenecks. Also index fragmentation should be checked and indexes should be reorganized if needed.
+- After checking the indexes, we should check the query and analyze possible refactoring points like using CTEs, using joins instead of subqueries, etc.
