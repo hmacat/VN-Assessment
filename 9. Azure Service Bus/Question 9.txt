@@ -1,0 +1,16 @@
+Question: Compare Azure Service Bus with RabbitMQ. In what scenarios would you choose one over the other?
+
+Answer: 
+We can compare Azure Service Bus and RabbitMQ as follows:
+
+-> Platform Differences
+	- Azure Service Bus is cloud-native and managed by Microsoft. It is also fully integrated with other Azure services. 
+	  Scalability and high availability (HA) are managed by the cloud infrastructure. These need to be manually managed in RabbitMQ. 
+	  For cloud-native applications, Azure Service Bus might be a better option.
+	- RabbitMQ is an open source tool which can be hosted on-premises and also on cloud platform. This will bring more flexibility but also operational costs.
+	  If there is already a RabbitMQ infrastructure existing in the organization, and technical support is available to manage the scalability and HA, 
+	  then this can be a better choice. It may also have a reduced cost comparing Azure Service Bus.
+-> Procotol Support
+	- RabbitMQ supports different procotols like MQTT. RabbitMQ can be chosen over Azure Service Bus for different protocol support scenarios.
+-> Portability
+	- Azure Service Bus is dependent on Azure. If portability is important, a setup with RabbitMQ and Docker can be chosen over Azure Service Bus.
