@@ -1,3 +1,16 @@
 Question: Explain the new features in .NET Core 8 that are beneficial for a Full Stack Developer. How do these features improve development productivity and application performance?
 
 Answer:
+
+-> Native AOT support for ASP.NET Core
+	Native AOT skips the traditional JIT compiler step and creates platform dependent code. 
+	With Native AOT support, applications have faster startup time and smaller memory footprints which will bring performance improvements.
+-> .NET Aspire
+	.NET Aspire is a cloud-ready stack for distributed applications with the following features:
+		- Orchestraction management for local development environments
+		- Nuget packages for common services like Redis, Azure Service Bus, etc.
+		- Development tools and templates for Visual Studio and Visual Studio Code which helps developer productivity..
+-> Garbage Collection Improvements
+	In .NET 8, you can change the memory limit of a service while it's running, which is useful for cloud services that need to adjust resources based on demand. 
+	The RefreshMemoryLimit() API helps the garbage collector recognize new memory limits, preventing it from using more memory than allowed when demand drops. 
+	This ensures efficient resource use and cost savings with improved performance.
