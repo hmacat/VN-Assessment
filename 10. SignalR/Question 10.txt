@@ -1,0 +1,11 @@
+Question: What are the use cases for SignalR? How does it facilitate real-time communication in web applications?
+
+Answer:
+	SignalR is a library that provides the functionality to server-side code to push content to web clients in real time.
+	Use cases:
+		- Any real time client notification updates like social media updates, online game updates, messaging updates, etc.
+		- Live chat applications
+		- IoT applications
+	SignalR uses hubs to facilitate real-time communication. 
+	SignalR tries to establish the connection trying the following procotols in order: WebSockets, Server-Sent Events, Long Polling.
+	Based on the supported protocol for connection, SignalR keeps the connection alive, enabling the real-time connection between the client and server.
